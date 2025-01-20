@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Animation</title>
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader" id="loader"></div>
+
+    <script>
+      function redirectWithLoading() {
+        // Show the loader
+        document.getElementById("loader").style.display = "block";
+        // Simulate a delay, then redirect
+        setTimeout(() => {
+          window.location.href = "page3.html"; // Replace with your target page
+        }, 1500); // 1.5 seconds delay
+      }
+
+      // Call the function after the page loads
+      window.onload = redirectWithLoading;
+    </script>
+  </body>
+</html>

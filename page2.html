@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The day Before💗</title>
+    <style>
+      body,
+      html {
+        background-image: url(images/love.jpeg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #f0f0f5;
+        text-align: center;
+      }
+      #p1 {
+        color: rgb(226, 11, 137);
+        font-family: Comic Sans MS, Helvetica, sans-serif;
+        font-size: 55px;
+        font-weight: bold;
+        margin: auto;
+        text-align: center;
+      }
+      #p2 {
+        color: rgb(5, 9, 236);
+        font-family: Comic Sans MS, Helvetica, sans-serif;
+        font-size: 45px;
+        font-weight: bold;
+        margin: auto;
+        text-align: center;
+      }
+
+      #clock-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #clock {
+        font-family: monospace;
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="p1">We've been together for:</p>
+    <div id="clock-container">
+      <div id="clock">00:00:00</div>
+    </div>
+    <p id="p2">...and still counting💕</p>
+    <button
+      style="
+        font-family: Comic Sans MS, Helvetica, sans-serif;
+        background-color: aquamarine;
+        font-size: 30px;
+      "
+      onclick="BirthdayLetter()"
+    >
+      Click to see your birthday letter! o(≧▽≦)o
+    </button>
+
+    <script>
+      updateClock();
+      setInterval(updateClock, 1000); //run every second by setting the interval
+
+      function updateClock() {
+        const now = new Date(); // Current date
+        const targetDate = new Date("2022-10-03"); // The target date
+
+        // Calculate the difference in milliseconds
+        const differenceInMillis = now - targetDate;
+
+        const days = Math.floor(differenceInMillis / (1000 * 60 * 60 * 24)); // Days
+        const hours = Math.floor(
+          (differenceInMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ); // Hours
+        const minutes = Math.floor(
+          (differenceInMillis % (1000 * 60 * 60)) / (1000 * 60)
+        ); // Minutes
+        const seconds = Math.floor((differenceInMillis % (1000 * 60)) / 1000); // Seconds
+
+        // Output the result in the desired format
+        document.getElementById(
+          "clock"
+        ).textContent = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+      }
+
+      function BirthdayLetter() {
+        window.location.href = "redirect3.html"; // Replace with your target page
+      }
+    </script>
+  </body>
+</html>
